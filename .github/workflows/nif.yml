@@ -5,6 +5,9 @@ on:
     tags:
       - "v*"
 
+permissions:
+  contents: write
+
 jobs:
   precompile_nifs:
     name: Precompile NIF ${{ matrix.nif }} - ${{ matrix.job.target }} (${{ matrix.job.os }})
@@ -32,7 +35,7 @@ jobs:
       - name: Extract project version
         shell: bash
         run: |
-          echo "PROJECT_VERSION=$(sed -n 's/^  @version \"\\(.*\\)\"/\\1/p' mix.exs | head -n1)" >> $GITHUB_ENV
+          echo "PROJECT_VERSION=$(awk -F'\"' '/@version/{print $2; exit}' mix.exs)" >> "$GITHUB_ENV"
 
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@stable
