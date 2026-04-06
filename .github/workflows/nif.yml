@@ -23,6 +23,7 @@ jobs:
 
     env:
       RUSTLER_NIF_VERSION: ${{ matrix.nif }}
+      CARGO_TARGET_DIR: target
 
     steps:
       - name: Checkout source code
