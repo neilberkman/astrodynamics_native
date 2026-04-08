@@ -1,6 +1,6 @@
 [package]
 name = "astrodynamics_native"
-version = "0.5.0"
+version = "0.6.0"
 authors = []
 edition = "2021"
 description = "Rustler NIF wrapper for the astrodynamics Rust crate"
@@ -12,7 +12,7 @@ crate-type = ["cdylib"]
 
 [dependencies]
 rustler = { version = "0.37.3", default-features = false, features = ["derive"] }
-astrodynamics = "0.5.0"
+astrodynamics = "0.6.0"
 nalgebra = "0.33"
 
 [features]
