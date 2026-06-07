@@ -10,7 +10,7 @@ The package can be installed by adding `astrodynamics` to your list of dependenc
 ```elixir
 def deps do
   [
-    {:astrodynamics, "~> 0.5.0"}
+    {:astrodynamics, "~> 0.6.1"}
   ]
 end
 ```
@@ -21,6 +21,10 @@ Releases. To force a local build from source instead, set:
 ```bash
 ASTRODYNAMICS_BUILD=1
 ```
+
+Source builds are supported on GNU and musl Linux targets. The precompiled
+release matrix includes Apple Silicon, Apple Intel, GNU Linux, and musl Linux
+targets for the supported Rustler NIF versions.
 
 The current wrapper exposes:
 

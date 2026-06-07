@@ -2,12 +2,22 @@ defmodule Astrodynamics.Native do
   @moduledoc false
 
   version = Mix.Project.config()[:version]
+  checksum_file = Path.expand("../../checksum-Elixir.Astrodynamics.Native.exs", __DIR__)
+  source_checkout? = File.exists?(Path.expand("../../.git", __DIR__))
+
+  checksum_current? =
+    File.exists?(checksum_file) and
+      checksum_file |> File.read!() |> String.contains?("-v#{version}-")
+
+  force_build =
+    System.get_env("ASTRODYNAMICS_BUILD") in ["1", "true"] or source_checkout? or
+      not checksum_current?
 
   use RustlerPrecompiled,
     otp_app: :astrodynamics,
     crate: "astrodynamics_native",
     base_url: "https://github.com/neilberkman/astrodynamics_native/releases/download/v#{version}",
-    force_build: System.get_env("ASTRODYNAMICS_BUILD") in ["1", "true"],
+    force_build: force_build,
     version: version,
     nif_versions: ["2.17", "2.16", "2.15"],
     targets: [
