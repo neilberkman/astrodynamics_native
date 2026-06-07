@@ -47,6 +47,7 @@ defmodule Astrodynamics.MixProject do
       files: [
         "lib",
         "native/astrodynamics_native/src",
+        "native/astrodynamics_native/.cargo",
         "native/astrodynamics_native/Cargo*",
         "checksum-*.exs",
         "mix.exs",
