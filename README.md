@@ -1,3 +1,8 @@
+> [!IMPORTANT]
+> **This project has been superseded by [Sidereon](https://github.com/neilberkman/sidereon-ex).**
+> The `astrodynamics` hex package is retired — install **[`sidereon`](https://hex.pm/packages/sidereon)** instead.
+> This repository is archived and no longer maintained.
+
 # Astrodynamics
 
 Elixir bindings for the `astrodynamics` Rust library, distributed as a Rustler
